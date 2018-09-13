@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="Tamas Piros">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log(`Service Worker registered! Scope: ${registration.scope}`);
+          })
+          .catch(err => {
+            console.log(`Service Worker registration failed: ${err}`);
+          });
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Adaptive image serving</h1>
+  <p>This example shows how to adaptively serve lower quality images for devices with slower bandwidth (network connection).</p>
+  <!-- <img src="https://res.cloudinary.com/tamas-demo/image/upload/f_auto/pwa/hungarywp.jpg"> -->
+<img src="https://res.cloudinary.com/tamas-demo/image/upload/pwa/hungarywp.jpg">
+</body>
+</html>
